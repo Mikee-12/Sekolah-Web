@@ -386,12 +386,6 @@ $result = $conn->query($sql);
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-file-earmark-text"></i>
-                  <p>Laporan</p>
-                </a>
-              </li>
             </ul>
           </nav>
         </div>
