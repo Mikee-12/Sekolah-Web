@@ -11,6 +11,16 @@ if ($result_siswa->num_rows > 0) {
     $total_siswa = $row_siswa['total_siswa'];
 }
 
+// Query untuk mengambil total agama
+$sql_total_agama = "SELECT COUNT(*) as total_agama FROM agama";
+$result_agama = $conn->query($sql_total_agama);
+$total_agama = 0;
+
+if ($result_agama->num_rows > 0) {
+    $row_agama = $result_agama->fetch_assoc();
+    $total_agama = $row_agama['total_agama'];
+}
+
 // Query untuk mengambil total jurusan
 $sql_total_jurusan = "SELECT COUNT(*) as total_jurusan FROM jurusan";
 $result_jurusan_count = $conn->query($sql_total_jurusan);
@@ -395,16 +405,16 @@ if ($result_jurusan->num_rows > 0) {
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-6">
-              <div class="small-box" style="background-color: var(--primary-green)">
+            <div class="small-box" style="background-color: var(--primary-green)">
                 <div class="inner">
-                  <h3>24</h3>
-                  <p>Kelas</p>
+                    <h3><?php echo $total_agama; ?></h3>
+                    <p>Agama</p>
                 </div>
                 <div class="icon">
-                  <i class="bi bi-door-open"></i>
+                    <i class="bi bi-door-open"></i>
                 </div>
-              </div>
             </div>
+        </div>
             <div class="col-lg-3 col-md-6 col-6">
             <div class="small-box" style="background-color: var(--primary-red)">
               <div class="inner">
@@ -416,16 +426,6 @@ if ($result_jurusan->num_rows > 0) {
               </div>
             </div>
           </div>
-            <div class="col-lg-3 col-md-6 col-6">
-              <div class="small-box" style="background-color: var(--primary-yellow)">
-                <div class="inner">
-                  <h3>45</h3>
-                  <p>Guru & Staff</p>
-                </div>
-                <div class="icon">
-                  <i class="bi bi-person-badge"></i>
-                </div>
-              </div>
             </div>
           </div>
 
