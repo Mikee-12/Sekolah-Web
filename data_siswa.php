@@ -176,16 +176,6 @@ $result = $conn->query($sql);
             transition: all 0.2s;
         }
         
-        .edit-link {
-            color: #28a745;
-            background-color: rgba(40, 167, 69, 0.1);
-        }
-        
-        .edit-link:hover {
-            background-color: #28a745;
-            color: white;
-        }
-        
         .delete-link {
             color: #dc3545;
             background-color: rgba(220, 53, 69, 0.1);
@@ -589,9 +579,6 @@ $result = $conn->query($sql);
                                                     <td><small title='".$row["alamat"]."'>".$alamat."</small></td>
                                                     <td><small>".($row["no_hp"] ? $row["no_hp"] : "-")."</small></td>
                                                     <td class='action-links'>
-                                                        <a href='edit_siswa.php?id=".$row["id"]."' class='edit-link' title='Edit Data'>
-                                                            <i class='bi bi-pencil-square'></i>
-                                                        </a>
                                                         <a href='#' class='delete-link' title='Hapus Data' onclick='deleteStudent(".$row["id"].", \"".$row["nama"]."\")'>
                                                             <i class='bi bi-trash'></i>
                                                         </a>

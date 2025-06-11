@@ -3,29 +3,29 @@ include 'koneksi.php';
 
 // Proses form jika ada data yang dikirim
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_agama = $_POST['id_agama'];
-    $nama_agama = $_POST['nama_agama'];
+    $id_jurusan = $_POST['id_jurusan'];
+    $nama_jurusan = $_POST['nama_jurusan'];
     
-    // Validasi ID Agama unique
-    $check_id = "SELECT id_agama FROM agama WHERE id_agama = ?";
+    // Validasi ID Jurusan unique
+    $check_id = "SELECT id_jurusan FROM jurusan WHERE id_jurusan = ?";
     $stmt_check = $conn->prepare($check_id);
-    $stmt_check->bind_param("i", $id_agama);
+    $stmt_check->bind_param("i", $id_jurusan);
     $stmt_check->execute();
     $result_check = $stmt_check->get_result();
     
     if ($result_check->num_rows > 0) {
-        $error_message = "ID Agama sudah terdaftar! Silakan gunakan ID yang berbeda.";
+        $error_message = "ID Jurusan sudah terdaftar! Silakan gunakan ID yang berbeda.";
     } else {
         // Insert data ke database
-        $sql = "INSERT INTO agama (id_agama, nama_agama) VALUES (?, ?)";
+        $sql = "INSERT INTO jurusan (id_jurusan, nama_jurusan) VALUES (?, ?)";
         
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("is", $id_agama, $nama_agama);
+        $stmt->bind_param("is", $id_jurusan, $nama_jurusan);
         
         if ($stmt->execute()) {
-            $success_message = "Data agama berhasil ditambahkan!";
+            $success_message = "Data jurusan berhasil ditambahkan!";
             // Redirect setelah 2 detik
-            header("refresh:2;url=data_agama.php");
+            header("refresh:2;url=data_jurusan.php");
         } else {
             $error_message = "Error: " . $stmt->error;
         }
@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_check->close();
 }
 
-// Ambil ID agama terakhir untuk suggestion
-$sql_last_id = "SELECT MAX(id_agama) as last_id FROM agama";
+// Ambil ID jurusan terakhir untuk suggestion
+$sql_last_id = "SELECT MAX(id_jurusan) as last_id FROM jurusan";
 $result_last_id = $conn->query($sql_last_id);
 $last_id = 0;
 if ($result_last_id && $result_last_id->num_rows > 0) {
@@ -49,9 +49,9 @@ $suggested_id = $last_id + 1;
 <html lang="id">
 <head>
     <meta charset="utf-8" />
-    <title>Tambah Agama - SMKN 6</title>
+    <title>Tambah Jurusan - SMKN 6</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Tambah Agama" />
+    <meta name="title" content="Tambah Jurusan" />
     <meta name="author" content="SMKN 6" />
 
     <link
@@ -123,7 +123,7 @@ $suggested_id = $last_id + 1;
         }
         
         .form-header {
-            background: var(--primary-red);
+            background: var(--primary-purple);
             color: white;
             padding: 20px;
             border-radius: 10px 10px 0 0;
@@ -152,21 +152,21 @@ $suggested_id = $last_id + 1;
         }
         
         .form-control:focus, .form-select:focus {
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 0.2rem rgba(78, 215, 241, 0.25);
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 0.2rem rgba(157, 118, 193, 0.25);
         }
         
         .btn-primary {
-            background-color: var(--primary-red);
-            border-color: var(--primary-red);
+            background-color: var(--primary-purple);
+            border-color: var(--primary-purple);
             padding: 12px 30px;
             font-weight: 600;
             border-radius: 8px;
         }
         
         .btn-primary:hover {
-            background-color: #3bc5e0;
-            border-color: #3bc5e0;
+            background-color: #8c68b0;
+            border-color: #8c68b0;
         }
         
         .btn-secondary {
@@ -300,13 +300,13 @@ $suggested_id = $last_id + 1;
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_agama.php" class="nav-link active">
+                                    <a href="data_agama.php" class="nav-link">
                                         <i class="nav-icon bi bi-journal-bookmark-fill"></i>
                                         <p>Agama</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_jurusan.php" class="nav-link">
+                                    <a href="data_jurusan.php" class="nav-link active">
                                         <i class="nav-icon bi bi-book-half"></i>
                                         <p>Jurusan</p>
                                     </a>
@@ -330,14 +330,14 @@ $suggested_id = $last_id + 1;
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h3 class="mb-0">Tambah Agama</h3>
-                            <p class="text-muted">Tambah data agama baru ke sistem</p>
+                            <h3 class="mb-0">Tambah Jurusan</h3>
+                            <p class="text-muted">Tambah data jurusan baru ke sistem</p>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-end">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item"><a href="data_agama.php">Data Agama</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Tambah Agama</li>
+                                <li class="breadcrumb-item"><a href="data_jurusan.php">Data Jurusan</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Tambah Jurusan</li>
                             </ol>
                         </div>
                     </div>
@@ -367,10 +367,10 @@ $suggested_id = $last_id + 1;
                         <div class="form-container">
                             <div class="form-header">
                                 <div class="d-flex align-items-center">
-                                    <i class="bi bi-journal-bookmark-fill me-3 fs-4"></i>
+                                    <i class="bi bi-book-half me-3 fs-4"></i>
                                     <div>
-                                        <h4 class="mb-1">Form Tambah Agama</h4>
-                                        <p class="mb-0 opacity-75">Lengkapi data agama dengan benar</p>
+                                        <h4 class="mb-1">Form Tambah Jurusan</h4>
+                                        <p class="mb-0 opacity-75">Lengkapi data jurusan dengan benar</p>
                                     </div>
                                 </div>
                             </div>
@@ -380,16 +380,16 @@ $suggested_id = $last_id + 1;
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="id_agama" class="form-label">ID Agama <span class="required">*</span></label>
-                                                <input type="number" class="form-control" id="id_agama" name="id_agama" min="1" max="99" value="<?php echo $suggested_id; ?>" required>
-                                                <div class="form-text">ID unik untuk agama (1-99). Suggestion: <?php echo $suggested_id; ?></div>
+                                                <label for="id_jurusan" class="form-label">ID Jurusan <span class="required">*</span></label>
+                                                <input type="number" class="form-control" id="id_jurusan" name="id_jurusan" min="1" max="99" value="<?php echo $suggested_id; ?>" required>
+                                                <div class="form-text">ID unik untuk jurusan (1-99). Suggestion: <?php echo $suggested_id; ?></div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="nama_agama" class="form-label">Nama Agama <span class="required">*</span></label>
-                                                <input type="text" class="form-control" id="nama_agama" name="nama_agama" maxlength="20" placeholder="Contoh: Islam, Kristen, dll" required>
-                                                <div class="form-text">Maksimal 20 karakter</div>
+                                                <label for="nama_jurusan" class="form-label">Nama Jurusan <span class="required">*</span></label>
+                                                <input type="text" class="form-control" id="nama_jurusan" name="nama_jurusan" maxlength="50" placeholder="Contoh: PPLG, AKL, DKV, dll" required>
+                                                <div class="form-text">Maksimal 50 karakter</div>
                                             </div>
                                         </div>
                                     </div>
@@ -398,7 +398,7 @@ $suggested_id = $last_id + 1;
                                         <button type="submit" class="btn btn-primary">
                                             <i class="bi bi-save me-2"></i>Simpan Data
                                         </button>
-                                        <a href="data_agama.php" class="btn btn-secondary">
+                                        <a href="data_jurusan.php" class="btn btn-secondary">
                                             <i class="bi bi-arrow-left me-2"></i>Kembali
                                         </a>
                                     </div>
@@ -447,39 +447,39 @@ $suggested_id = $last_id + 1;
 
             // Form validation
             const form = document.querySelector('form');
-            const idAgamaInput = document.getElementById('id_agama');
-            const namaAgamaInput = document.getElementById('nama_agama');
+            const idJurusanInput = document.getElementById('id_jurusan');
+            const namaJurusanInput = document.getElementById('nama_jurusan');
 
-            // ID Agama validation (hanya angka)
-            idAgamaInput.addEventListener('input', function() {
+            // ID Jurusan validation (hanya angka)
+            idJurusanInput.addEventListener('input', function() {
                 this.value = this.value.replace(/[^0-9]/g, '');
                 if (this.value > 99) this.value = 99;
                 if (this.value < 1 && this.value !== '') this.value = 1;
             });
 
-            // Nama Agama validation (kapitalkan huruf pertama)
-            namaAgamaInput.addEventListener('blur', function() {
+            // Nama Jurusan validation (kapitalkan huruf pertama)
+            namaJurusanInput.addEventListener('blur', function() {
                 if (this.value) {
-                    this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1).toLowerCase();
+                    this.value = this.value.toUpperCase(); // Jurusan biasanya uppercase
                 }
             });
 
             // Form submission validation
             form.addEventListener('submit', function(e) {
-                const idAgama = parseInt(idAgamaInput.value);
-                const namaAgama = namaAgamaInput.value.trim();
+                const idJurusan = parseInt(idJurusanInput.value);
+                const namaJurusan = namaJurusanInput.value.trim();
 
-                if (idAgama < 1 || idAgama > 99) {
+                if (idJurusan < 1 || idJurusan > 99) {
                     e.preventDefault();
-                    alert('ID Agama harus antara 1-99');
-                    idAgamaInput.focus();
+                    alert('ID Jurusan harus antara 1-99');
+                    idJurusanInput.focus();
                     return;
                 }
 
-                if (namaAgama.length < 3) {
+                if (namaJurusan.length < 2) {
                     e.preventDefault();
-                    alert('Nama Agama minimal 3 karakter');
-                    namaAgamaInput.focus();
+                    alert('Nama Jurusan minimal 2 karakter');
+                    namaJurusanInput.focus();
                     return;
                 }
             });

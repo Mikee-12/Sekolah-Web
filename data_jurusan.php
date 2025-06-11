@@ -1,8 +1,8 @@
 <?php
 include 'koneksi.php';
 
-// Query untuk mengambil data agama
-$query = "SELECT * FROM agama ORDER BY id_agama ASC";
+// Query untuk mengambil data jurusan
+$query = "SELECT * FROM jurusan ORDER BY id_jurusan ASC";
 $result = $conn->query($query);
 ?>
 
@@ -10,9 +10,9 @@ $result = $conn->query($query);
 <html lang="id">
 <head>
     <meta charset="utf-8" />
-    <title>Data Agama - SMKN 6</title>
+    <title>Data Jurusan - SMKN 6</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Data Agama" />
+    <meta name="title" content="Data Jurusan" />
     <meta name="author" content="SMKN 6" />
 
     <link
@@ -99,78 +99,78 @@ $result = $conn->query($query);
             border-radius: 15px;
             font-size: 0.85em;
         }
+        
         .app-content-header {
-    background: white;
-    padding: 15px 0;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
+            background: white;
+            padding: 15px 0;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-/* Table styling - sama seperti data_siswa */
-.table-container {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    overflow: hidden;
-    margin-bottom: 20px;
-}
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
 
-.table-header {
-    background: var(--primary-red);
-    color: white;
-    padding: 20px;
-    border-radius: 10px 10px 0 0;
-}
+        .table-header {
+            background: var(--primary-purple);
+            color: white;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
 
-.table-responsive {
-    border-radius: 0 0 10px 10px;
-    overflow: hidden;
-}
+        .table-responsive {
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+        }
 
-table {
-    margin-bottom: 0;
-}
+        table {
+            margin-bottom: 0;
+        }
 
-th {
-    background-color: #f8f9fa;
-    color: #333;
-    font-weight: 600;
-    border-bottom: 2px solid #dee2e6;
-}
+        th {
+            background-color: #f8f9fa;
+            color: #333;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
 
-tbody tr:hover {
-    background-color: #f8f9fa;
-}
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
 
-.action-links a {
-    padding: 5px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.875rem;
-    margin: 0 2px;
-    transition: all 0.2s;
-}
+        .action-links a {
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin: 0 2px;
+            transition: all 0.2s;
+        }
 
-.delete-link {
-    color: #dc3545;
-    background-color: rgba(220, 53, 69, 0.1);
-}
+        .delete-link {
+            color: #dc3545;
+            background-color: rgba(220, 53, 69, 0.1);
+        }
 
-.delete-link:hover {
-    background-color: #dc3545;
-    color: white;
-}
+        .delete-link:hover {
+            background-color: #dc3545;
+            color: white;
+        }
 
-.total-info {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    margin-top: 20px;
-    text-align: center;
-    color: #666;
-}
+        .total-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+        }
     </style>
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -251,13 +251,13 @@ tbody tr:hover {
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_agama.php" class="nav-link active">
+                                    <a href="data_agama.php" class="nav-link">
                                         <i class="nav-icon bi bi-journal-bookmark-fill"></i>
                                         <p>Agama</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_jurusan.php" class="nav-link">
+                                    <a href="data_jurusan.php" class="nav-link active">
                                         <i class="nav-icon bi bi-book-half"></i>
                                         <p>Jurusan</p>
                                     </a>
@@ -276,87 +276,87 @@ tbody tr:hover {
         </aside>
 
         <main class="app-main pt-4" style="margin-top: 30px;">
-    <div class="app-content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3 class="mb-0">Data Agama</h3>
-                    <p class="text-muted">Kelola data agama SMKN 6</p>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Data</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data Agama</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="table-container">
-                    <div class="table-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h4 class="mb-1"><i class="bi bi-journal-bookmark-fill me-2"></i>Daftar Agama</h4>
-                                <p class="mb-0 opacity-75">Informasi lengkap data agama SMKN 6</p>
-                            </div>
-                            <a href="tambah_agama.php" class="btn btn-light">
-                                <i class="bi bi-plus-circle me-1"></i>Tambah Agama
-                            </a>
+            <div class="app-content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="mb-0">Data Jurusan</h3>
+                            <p class="text-muted">Kelola data jurusan SMKN 6</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-end">
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Data</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Data Jurusan</li>
+                            </ol>
                         </div>
                     </div>
-                    
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 10%;">No</th>
-                                    <th style="width: 15%;">ID Agama</th>
-                                    <th style="width: 50%;">Nama Agama</th>
-                                    <th style="width: 25%;">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                if ($result && $result->num_rows > 0) {
-                                    $no = 1;
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo "<tr>
-                                            <td class='fw-bold text-muted'>$no</td>
-                                            <td><span class='badge bg-secondary'>".$row["id_agama"]."</span></td>
-                                            <td class='fw-semibold'>".$row["nama_agama"]."</td>
-                                            <td class='action-links'>
-                                                <a href='#' class='delete-link' title='Hapus Data' onclick='deleteAgama(".$row["id_agama"].", \"".$row["nama_agama"]."\")'>
-                                                    <i class='bi bi-trash'></i>
-                                                </a>
-                                            </td>
-                                        </tr>";
-                                        $no++;
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='4' class='text-center text-muted py-4'>
-                                        <i class='bi bi-inbox fs-1'></i><br>
-                                        Tidak ada data agama yang ditemukan
-                                    </td></tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="total-info">
-                    <i class="bi bi-journal-bookmark-fill me-2"></i>
-                    <strong>Total Data: <?php echo $result ? $result->num_rows : 0; ?> agama</strong>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-container">
+                            <div class="table-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h4 class="mb-1"><i class="bi bi-book-half me-2"></i>Daftar Jurusan</h4>
+                                        <p class="mb-0 opacity-75">Informasi lengkap data jurusan SMKN 6</p>
+                                    </div>
+                                    <a href="tambah_jurusan.php" class="btn btn-light">
+                                        <i class="bi bi-plus-circle me-1"></i>Tambah Jurusan
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%;">No</th>
+                                            <th style="width: 15%;">ID Jurusan</th>
+                                            <th style="width: 50%;">Nama Jurusan</th>
+                                            <th style="width: 25%;">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        if ($result && $result->num_rows > 0) {
+                                            $no = 1;
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo "<tr>
+                                                    <td class='fw-bold text-muted'>$no</td>
+                                                    <td><span class='badge bg-secondary'>".$row["id_jurusan"]."</span></td>
+                                                    <td class='fw-semibold'>".$row["nama_jurusan"]."</td>
+                                                    <td class='action-links'>
+                                                        <a href='#' class='delete-link' title='Hapus Data' onclick='deleteJurusan(".$row["id_jurusan"].", \"".$row["nama_jurusan"]."\")'>
+                                                            <i class='bi bi-trash'></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>";
+                                                $no++;
+                                            }
+                                        } else {
+                                            echo "<tr><td colspan='4' class='text-center text-muted py-4'>
+                                                <i class='bi bi-inbox fs-1'></i><br>
+                                                Tidak ada data jurusan yang ditemukan
+                                            </td></tr>";
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="total-info">
+                            <i class="bi bi-book-half me-2"></i>
+                            <strong>Total Data: <?php echo $result ? $result->num_rows : 0; ?> jurusan</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer class="app-footer">
@@ -412,70 +412,70 @@ tbody tr:hover {
             }
         });
 
-        function deleteAgama(id, nama) {
-    if (confirm('Yakin ingin menghapus data agama "' + nama + '"?')) {
-        // Buat AJAX request atau redirect ke delete_agama.php
-        fetch('delete_agama.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'id=' + id
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showAlert('success', data.message);
-                setTimeout(() => {
-                    location.reload();
-                }, 1500);
-            } else {
-                showAlert('error', data.message);
+        function deleteJurusan(id, nama) {
+            if (confirm('Yakin ingin menghapus data jurusan "' + nama + '"?')) {
+                // Buat AJAX request atau redirect ke delete_jurusan.php
+                fetch('delete_jurusan.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'id=' + id
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showAlert('success', data.message);
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        showAlert('error', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showAlert('error', 'Terjadi kesalahan saat menghapus data!');
+                });
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showAlert('error', 'Terjadi kesalahan saat menghapus data!');
-        });
-    }
-}
-
-// Fungsi untuk menampilkan alert (sama seperti di data_siswa)
-function showAlert(type, message) {
-    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
-    const iconClass = type === 'success' ? 'bi-check-circle' : 'bi-exclamation-triangle';
-    
-    const alertHtml = `
-        <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
-            <i class="${iconClass} me-2"></i>${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    `;
-    
-    let alertContainer = document.getElementById('alert-container');
-    if (!alertContainer) {
-        alertContainer = document.createElement('div');
-        alertContainer.id = 'alert-container';
-        alertContainer.style.position = 'fixed';
-        alertContainer.style.top = '70px';
-        alertContainer.style.right = '20px';
-        alertContainer.style.zIndex = '9999';
-        alertContainer.style.maxWidth = '400px';
-        document.body.appendChild(alertContainer);
-    }
-    
-    alertContainer.innerHTML = alertHtml;
-    
-    setTimeout(() => {
-        const alert = alertContainer.querySelector('.alert');
-        if (alert) {
-            alert.classList.remove('show');
-            setTimeout(() => {
-                alertContainer.innerHTML = '';
-            }, 150);
         }
-    }, 3000);
-}
+
+        // Fungsi untuk menampilkan alert
+        function showAlert(type, message) {
+            const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+            const iconClass = type === 'success' ? 'bi-check-circle' : 'bi-exclamation-triangle';
+            
+            const alertHtml = `
+                <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+                    <i class="${iconClass} me-2"></i>${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            
+            let alertContainer = document.getElementById('alert-container');
+            if (!alertContainer) {
+                alertContainer = document.createElement('div');
+                alertContainer.id = 'alert-container';
+                alertContainer.style.position = 'fixed';
+                alertContainer.style.top = '70px';
+                alertContainer.style.right = '20px';
+                alertContainer.style.zIndex = '9999';
+                alertContainer.style.maxWidth = '400px';
+                document.body.appendChild(alertContainer);
+            }
+            
+            alertContainer.innerHTML = alertHtml;
+            
+            setTimeout(() => {
+                const alert = alertContainer.querySelector('.alert');
+                if (alert) {
+                    alert.classList.remove('show');
+                    setTimeout(() => {
+                        alertContainer.innerHTML = '';
+                    }, 150);
+                }
+            }, 3000);
+        }
     </script>
 </body>
 </html>

@@ -334,7 +334,7 @@ if ($result_jurusan->num_rows > 0) {
       </aside>
 
       <!-- Main Content -->
-      <main class="app-main pt-4" style="margin-top: 56px;">
+      <main class="app-main pt-4" style="margin-top: 30px;">
         <div class="app-content-header">
           <div class="container-fluid">
             <div class="row">
