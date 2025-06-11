@@ -11,6 +11,16 @@ if ($result_siswa->num_rows > 0) {
     $total_siswa = $row_siswa['total_siswa'];
 }
 
+// Query untuk mengambil total jurusan
+$sql_total_jurusan = "SELECT COUNT(*) as total_jurusan FROM jurusan";
+$result_jurusan_count = $conn->query($sql_total_jurusan);
+$total_jurusan = 0;
+
+if ($result_jurusan_count->num_rows > 0) {
+    $row_jurusan = $result_jurusan_count->fetch_assoc();
+    $total_jurusan = $row_jurusan['total_jurusan'];
+}
+
 // Query untuk data chart - siswa per tahun masuk (10 tahun terakhir)
 $current_year = date('Y');
 $sql_chart = "SELECT tahun_masuk, COUNT(*) as jumlah 
@@ -283,8 +293,7 @@ if ($result_jurusan->num_rows > 0) {
       <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
         <div class="sidebar-brand">
           <a href="index.php" class="brand-link">
-            <img src="dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
-            <span class="brand-text fw-light">Sistem Data Siswa</span>
+            <span class="brand-text fw-light">Data Sekolah</span>
           </a>
         </div>
         <div class="sidebar-wrapper">
@@ -318,6 +327,32 @@ if ($result_jurusan->num_rows > 0) {
                     <a href="data_jurusan.php" class="nav-link">
                       <i class="nav-icon bi bi-book-half"></i>
                       <p>Jurusan</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+                <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-plus"></i>
+                  <p>Tambah Data<i class="nav-arrow bi bi-chevron-right"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="tambah_siswa.php" class="nav-link">
+                      <i class="nav-icon bi bi-people-fill"></i>
+                      <p>Tambah Data Siswa</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="tambah_agama.php" class="nav-link">
+                      <i class="nav-icon bi bi-journal-bookmark-fill"></i>
+                      <p>Tambah Agama</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="tambah_jurusan.php" class="nav-link">
+                      <i class="nav-icon bi bi-book-half"></i>
+                      <p>Tambah Jurusan</p>
                     </a>
                   </li>
                 </ul>
@@ -377,16 +412,16 @@ if ($result_jurusan->num_rows > 0) {
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-6">
-              <div class="small-box" style="background-color: var(--primary-red)">
-                <div class="inner">
-                  <h3><?php echo count($jurusan_labels); ?></h3>
-                  <p>Jurusan</p>
-                </div>
-                <div class="icon">
-                  <i class="bi bi-book-half"></i>
-                </div>
+            <div class="small-box" style="background-color: var(--primary-red)">
+              <div class="inner">
+                <h3><?php echo $total_jurusan; ?></h3>
+                <p>Jurusan</p>
+              </div>
+              <div class="icon">
+                <i class="bi bi-book-half"></i>
               </div>
             </div>
+          </div>
             <div class="col-lg-3 col-md-6 col-6">
               <div class="small-box" style="background-color: var(--primary-yellow)">
                 <div class="inner">

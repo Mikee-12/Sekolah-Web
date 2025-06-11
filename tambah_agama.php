@@ -271,58 +271,83 @@ $suggested_id = $last_id + 1;
         </nav>
 
         <!-- Sidebar -->
-        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
-            <div class="sidebar-brand">
-                <a href="index.php" class="brand-link">
-                    <img src="dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
-                    <span class="brand-text fw-light">Sistem Data Siswa</span>
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <div class="sidebar-brand">
+          <a href="index.php" class="brand-link">
+            <span class="brand-text fw-light">Data Sekolah</span>
+          </a>
+        </div>
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+              <li class="nav-item">
+                <a href="index.php" class="nav-link active">
+                  <i class="nav-icon bi bi-speedometer2"></i>
+                  <p>Dashboard</p>
                 </a>
-            </div>
-            <div class="sidebar-wrapper">
-                <nav class="mt-2">
-                    <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href="index.php" class="nav-link">
-                                <i class="nav-icon bi bi-speedometer2"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon bi bi-table"></i>
-                                <p>Data<i class="nav-arrow bi bi-chevron-right"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="data_siswa.php" class="nav-link">
-                                        <i class="nav-icon bi bi-people-fill"></i>
-                                        <p>Data Siswa</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="data_agama.php" class="nav-link active">
-                                        <i class="nav-icon bi bi-journal-bookmark-fill"></i>
-                                        <p>Agama</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="data_jurusan.php" class="nav-link">
-                                        <i class="nav-icon bi bi-book-half"></i>
-                                        <p>Jurusan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon bi bi-file-earmark-text"></i>
-                                <p>Laporan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-table"></i>
+                  <p>Data<i class="nav-arrow bi bi-chevron-right"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="data_siswa.php" class="nav-link">
+                      <i class="nav-icon bi bi-people-fill"></i>
+                      <p>Data Siswa</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="data_agama.php" class="nav-link">
+                      <i class="nav-icon bi bi-journal-bookmark-fill"></i>
+                      <p>Agama</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="data_jurusan.php" class="nav-link">
+                      <i class="nav-icon bi bi-book-half"></i>
+                      <p>Jurusan</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+                <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-plus"></i>
+                  <p>Tambah Data<i class="nav-arrow bi bi-chevron-right"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="tambah_siswa.php" class="nav-link">
+                      <i class="nav-icon bi bi-people-fill"></i>
+                      <p>Tambah Data Siswa</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="tambah_agama.php" class="nav-link">
+                      <i class="nav-icon bi bi-journal-bookmark-fill"></i>
+                      <p>Tambah Agama</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="tambah_jurusan.php" class="nav-link">
+                      <i class="nav-icon bi bi-book-half"></i>
+                      <p>Tambah Jurusan</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-file-earmark-text"></i>
+                  <p>Laporan</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
 
         <!-- Main Content -->
         <main class="app-main pt-4" style="margin-top: 56px;">

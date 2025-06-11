@@ -67,6 +67,35 @@
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-plus-circle-fill"></i>
+                  <p>
+                    Tambah Data
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="tambah_agama.php" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Tambah Agama</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="tambah_siswa.php" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Tambah Siswa</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="tambah_jurusan.php" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Tambah Jurusan</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-box-seam-fill"></i>
                   <p>
                     Widgets
