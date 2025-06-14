@@ -1,29 +1,37 @@
-dashboard:
-![image](https://github.com/user-attachments/assets/1703b517-3d73-4421-8e1a-596efb3e6e19)
+# 🏫 Website Sekolah Sederhana
 
-data siswa:
-![image](https://github.com/user-attachments/assets/d4d8783e-5b62-419d-8ee8-d1e140ffa057)
+Website ini dirancang untuk membantu pengelolaan data siswa di sekolah. Fitur utamanya mencakup visualisasi statistik data siswa berdasarkan **agama** dan **jurusan**, serta form untuk menambahkan data siswa ke dalam database.
 
-tambah siswa:
-![image](https://github.com/user-attachments/assets/b446b1c4-74c0-4f3b-add8-c75c081dc57c)
+---
 
-data agama:
-![image](https://github.com/user-attachments/assets/3602a0ef-24d9-46df-af0b-fdb9138d85e4)
+## 🔧 Teknologi yang Digunakan
 
-tambah agama:
-![image](https://github.com/user-attachments/assets/81ec1e8f-0c2c-4089-8818-7fc922abf04d)
+- 💻 **PHP** – untuk proses backend dan pengolahan data
+- 🛢️ **MySQL** – sebagai database penyimpanan data siswa
+- 📊 **Chart.js** – untuk menampilkan grafik kurva data siswa secara interaktif
+- 🎨 **HTML, CSS, JavaScript** – tampilan antarmuka pengguna
 
-data jurusan:
-![image](https://github.com/user-attachments/assets/d8cabc70-b947-407e-bcca-3e9c1c487381)
+---
 
-tambah jurusan:
-![image](https://github.com/user-attachments/assets/c2362bbc-7a42-4ed4-8160-7110341d5f2e)
+## ✨ Fitur Utama
 
-tabel siswa:
-![image](https://github.com/user-attachments/assets/f2a64731-ad09-4d5a-82be-d544b4bc319e)
+- Menampilkan **jumlah total siswa**
+- Visualisasi data siswa berdasarkan:
+  - Agama (Islam, Kristen, Hindu, Budha, dll)
+  - Jurusan (AKL, ULP, MPLB, dll)
+- Tambah data siswa baru melalui form
+- Data tersimpan langsung ke dalam database MySQL
+- Tampilan sederhana dan mudah digunakan
 
-tabel agama:
-![image](https://github.com/user-attachments/assets/a43ea1f3-a295-4e51-b435-6b5722aa3c13)
+---
 
-tabel jurusan:
-![image](https://github.com/user-attachments/assets/a4262f63-e9cf-4f96-993d-e5f34c15bdb5)
+## 🚀 Cara Instalasi
+
+1. Clone repositori:
+
+   ```bash
+   git clone https://github.com/username/web-sekolah-sederhana.git
+
+| Dashboard                                                                                     | Data Siswa                                                                                     | Tambah Siswa                                                                                     |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| ![dashboard](https://github.com/user-attachments/assets/1703b517-3d73-4421-8e1a-596efb3e6e19) | ![data siswa](https://github.com/user-attachments/assets/d4d8783e-5b62-419d-8ee8-d1e140ffa057) | ![tambah siswa](https://github.com/user-attachments/assets/b446b1c4-74c0-4f3b-add8-c75c081dc57c) |
