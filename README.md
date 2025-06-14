@@ -38,8 +38,6 @@ Website ini dirancang untuk membantu pengelolaan data siswa di sekolah. Fitur ut
 | Data Agama                                                                                     | Tambah Agama                                                                                     | Data Jurusan                                                                                     |
 | ![data agama](https://github.com/user-attachments/assets/3602a0ef-24d9-46df-af0b-fdb9138d85e4) | ![tambah agama](https://github.com/user-attachments/assets/81ec1e8f-0c2c-4089-8818-7fc922abf04d) | ![data jurusan](https://github.com/user-attachments/assets/d8cabc70-b947-407e-bcca-3e9c1c487381) |
 | Tambah Jurusan                                                                                     | Tabel Siswa                                                                                     | Tabel Agama                                                                                     |
-| -------------------------------------------------------------------------------------------------- | -----------------------------------------------------------------------
 | ![tambah jurusan](https://github.com/user-attachments/assets/c2362bbc-7a42-4ed4-8160-7110341d5f2e) | ![tabel siswa](https://github.com/user-attachments/assets/f2a64731-ad09-4d5a-82be-d544b4bc319e) | ![tabel agama](https://github.com/user-attachments/assets/a43ea1f3-a295-4e51-b435-6b5722aa3c13) |
 | Tabel Jurusan                                                                                     |
-| ------------------------------------------------------------------------------------------------- |
 | ![tabel jurusan](https://github.com/user-attachments/assets/a4262f63-e9cf-4f96-993d-e5f34c15bdb5) |
